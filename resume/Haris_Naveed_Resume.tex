@@ -1,0 +1,190 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Standard LaTeX packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[top=0.45in, bottom=0.45in, left=0.5in, right=0.5in]{geometry}
+\usepackage{xcolor}
+\usepackage[hidelinks,breaklinks=true]{hyperref}
+\usepackage{xurl}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+% Professional Color Palette
+\definecolor{primary}{RGB}{20, 45, 85}       % Deep Executive Navy
+\definecolor{secondary}{RGB}{45, 45, 45}     % Dark Charcoal
+\definecolor{accent}{RGB}{30, 90, 160}      % Muted Blue for links
+\definecolor{rulecolor}{RGB}{180, 195, 210}  % Elegant Rule Accent
+
+% Set font to clean sans-serif
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.05}
+\pagestyle{empty}
+
+% Section Header Formatting with colored underline
+\titleformat{\section}
+  {\large\bfseries\color{primary}\scshape\raggedright}
+  {}
+  {0em}
+  {}
+  [{\color{primary}\hrule height 1.2pt}\vspace{-2pt}]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+% Helper Commands
+\newcommand{\resumeHeading}[4]{%
+  \noindent{\bfseries\color{primary} #1} \ \textbullet\ {\itshape\color{secondary} #2} \hfill {\small\color{secondary}\ifx\relax#3\relax #4\else #3 | #4\fi}\par\vspace{2pt}%
+}
+
+\newcommand{\educationHeading}[4]{%
+  \noindent{\bfseries\color{primary} #1} \hfill {\small\color{secondary} #3 | #4}\\%
+  {\itshape\color{secondary} #2}\par\vspace{2pt}%
+}
+
+\newcommand{\projectHeading}[3]{%
+  \noindent{\bfseries\color{primary} #1} \ifx\relax#2\relax\else{\small (\href{#2}{\color{accent}\underline{#2}})}\fi \hfill {\small\itshape\color{secondary} #3}\par\vspace{2pt}%
+}
+
+\newcommand{\teacherAssistant}[1]{\noindent\textbf{Courses:} #1}
+\newcommand{\courseWork}[1]{\noindent\textbf{Coursework:} #1}
+
+% List Environments
+\newenvironment{bullets}{%
+  \begin{itemize}[leftmargin=1.2em, itemsep=2.5pt, parsep=0pt, topsep=2pt, partopsep=0pt]%
+}{%
+  \end{itemize}\vspace{2pt}%
+}
+
+\newenvironment{skillList}{%
+  \begin{itemize}[leftmargin=0pt, label={}, itemsep=4pt, parsep=0pt, topsep=2pt, partopsep=0pt]%
+}{%
+  \end{itemize}%
+}
+
+\newcommand{\singleItem}[1]{\item #1}
+
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile Header
+%--------------------------------------------------------------
+\newcommand{\yourName}{Haris Naveed}
+\newcommand{\yourField}{Senior PHP / Laravel Developer \ \textbullet\ GoHighLevel Specialist \ \textbullet\ AI Automation Engineer}
+\newcommand{\yourDesc}{Senior Software Engineer with over 5 years of professional experience specializing in PHP/Laravel backend architecture, GoHighLevel (GHL) CRM \& AI automation, and React.js web applications. Expert in engineering scalable REST APIs, WebSockets, Voice \& Conversation AI, prompt engineering, and automated workflows. Proven track record in building enterprise POS systems, third-party payment/carrier integrations, and SaaS solutions for international clients.}
+\newcommand{\yourWebsite}{https://github.com/harisnaveed}
+\newcommand{\yourEmail}{haristhedeveloper@gmail.com}
+\newcommand{\yourPhone}{+92-312-1592007}
+
+\begin{center}
+    {\Huge\bfseries\color{primary} \yourName} \\[4pt]
+    {\large\bfseries\color{secondary} \yourField} \\[5pt]
+    {\small 
+      \href{mailto:\yourEmail}{\color{accent}\underline{\yourEmail}} \ \ $|$ \ \ 
+      \href{tel:\yourPhone}{\color{secondary}\yourPhone} \ \ $|$ \ \ 
+      \href{\yourWebsite}{\color{accent}\underline{github.com/harisnaveed}}
+    }
+\end{center}
+\vspace{2pt}
+\noindent{\small\color{secondary} \yourDesc}
+\vspace{4pt}
+
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+\section{Education}
+\educationHeading{\newline BS Computer Science}{International Islamic University}{Islamabad, Pakistan}{2015 -- 2019}
+\teacherAssistant{Web Development, Data Structures, Digital Logic Design, Design and Algorithm Analysis}
+\vspace{4pt}
+
+%--------------------------------------------------------------
+%     Work Experience
+%--------------------------------------------------------------
+\section{Work Experience}
+
+\resumeHeading{\newline OC ANALYTICA}{Senior PHP / Laravel Developer \& GHL Specialist}{}{July 2021 -- Present}
+\begin{bullets}
+    \item Spearheaded backend architecture for 15+ web and mobile enterprise applications using \textbf{Laravel} and \textbf{PHP}, designing secure REST APIs, authentication, authorization, and queued background job processing.
+    \item Architected enterprise \textbf{GoHighLevel (GHL)} CRM solutions and workflow automations, implementing \textbf{Conversation AI}, \textbf{Voice AI}, prompt engineering, and training custom AI agents for automated lead qualification and booking.
+    \item Configured end-to-end GHL automation systems including calendar scheduling, appointment pipelines, opportunities, custom fields, Missed Call Text Back, IVR, Reviews AI, and multi-channel SMS/Email/WhatsApp campaigns.
+    \item Managed \textbf{Twilio} integrations, phone number configuration, and secured \textbf{A2P 10DLC} registration compliance for US \& Canada carrier messaging standards.
+    \item Developed custom \textbf{GHL Private Integrations}, utilizing REST APIs, Webhooks, authentication tokens, and Export Conversations API to synchronize GHL CRM data with external database systems.
+    \item Integrated Facebook, Instagram, and Google Business Profile channels into unified messaging workflows for automated lead capture and follow-ups.
+    \item Engineered real-time communication modules and event broadcasting using \textbf{Laravel Reverb}, \textbf{Laravel Broadcasting}, and \textbf{Ratchet PHP} WebSockets for live chat modules and Point of Sale (POS) application dashboards.
+    \item Modeled and optimized high-performance \textbf{PostgreSQL} and \textbf{MySQL} databases, indexing complex queries for rapid data retrieval and reliable transaction management.
+    \item Collaborated with frontend engineers to integrate dynamic \textbf{React.js} components with backend APIs, ensuring responsive UI and optimal web performance.
+    \item Designed scalable hosting infrastructure, managed deployment workflows, and optimized media delivery pipelines for production environments.\newline
+\end{bullets}
+
+\resumeHeading{OXMITE}{PHP Developer}{}{Dec 2019 -- June 2021}
+\begin{bullets}
+    \item Engineered and maintained high-performance web services and backend APIs using \textbf{PHP}, supporting diverse frontend frameworks and third-party integrations.
+    \item Managed server and database administration tasks using \textbf{cPanel} and \textbf{SiteGround} Linux hosting environments, optimizing for high availability, security, and scalability.
+    \item Designed, tuned, and maintained \textbf{PostgreSQL} database schemas to secure server-user data interchange and minimize query response latency.
+    \item Conducted continuous testing, profiling, and debugging of backend systems, applying best practices across the software development lifecycle.
+\end{bullets}
+
+\pagebreak % Clean page transition to Projects & Skills section
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+\section{Projects}
+
+\projectHeading{\newline Boostmyrepair.com}{https://boostmyrepair.com/}{HTML, CSS, Bootstrap, JavaScript, PHP, MySQL, Stripe, PayPal, cURL API, PHPMailer}
+\begin{bullets}
+    \item Engineered dynamic web repair service platform featuring a robust PHP backend architecture, Bootstrap interface, and cURL API integrations.
+    \item Integrated \textbf{Stripe} and \textbf{PayPal} payment libraries to support secure payment processing, subscription management, and auto-generated invoices.
+    \item Built a comprehensive custom administration portal for tracking repair orders, customer subscriptions, and billing transactions.
+    \item Utilized \textbf{PHPMailer} for reliable, automated email notifications and customer receipt communications.
+\end{bullets}
+
+\projectHeading{Biidon}{https://biidon.com/}{Vanilla PHP, MySQL, Stripe, Google Maps API, CSS Grid, JavaScript}
+\begin{bullets}
+    \item Architected repair service quotation platform with custom Vanilla PHP backend and interactive JavaScript front-end.
+    \item Integrated \textbf{Google Maps API} for geolocation tracking and location-aware repair service estimates.
+    \item Incorporated \textbf{Stripe Payment Library} for secure online payment workflows and deposit processing.
+    \item Designed responsive UI layouts with CSS Grid and built an admin panel for real-time quotation and financial transaction tracking.
+\end{bullets}
+
+\projectHeading{Cellzone Phone Repair}{https://cellzonephonerepair.com/}{WordPress, WooCommerce, Elementor, Stripe, PayPal, Affirm, UPS Shipping, WPSyncSheets}
+\begin{bullets}
+    \item Developed e-commerce platform on WordPress using WooCommerce and Elementor, tailored for mobile repair products and service booking.
+    \item Configured multi-gateway payment processing supporting \textbf{PayPal}, \textbf{Stripe}, and \textbf{Affirm} financing options.
+    \item Integrated automated \textbf{UPS Shipping API} to dynamically calculate shipping rates during checkout.
+    \item Implemented \textbf{WPSyncSheets} to synchronize WooCommerce products, orders, and inventory real-time with Google Sheets.
+\end{bullets}
+
+\projectHeading{Cellularciti}{https://cellularciti.com/}{HTML, CSS, Bootstrap, JavaScript, Vanilla PHP, MySQL, Stripe}
+\begin{bullets}
+    \item Created mobile e-commerce platform featuring a custom PHP \textbf{session-based} cart architecture and checkout flow.
+    \item Integrated \textbf{Stripe} for credit card payment processing and secure transaction handling.
+\end{bullets}
+
+\projectHeading{Gadget ResQ}{http://gadgetresq.com/}{HTML, CSS, Bootstrap, JavaScript, Vanilla PHP, MySQL, Google Sheets API}
+\begin{bullets}
+    \item Developed front-end and back-end for Gadget ResQ website, providing smooth navigation and customer quote submission flows.
+    \item Engineered an automated web dashboard connected to \textbf{Google Sheets API} to fetch and render real-time operational metrics.
+    \item Built secure backend data handling and validation pipelines to ensure high performance and storage scalability.
+\end{bullets}
+
+\projectHeading{QR Setup}{https://github.com/harisnaveed/qr-code}{Vanilla PHP, JavaScript, HTML, CSS}
+\begin{bullets}
+    \item Built a web application and \textbf{QR code generator} supporting dynamic data types for convenient mobile information sharing.
+\end{bullets}
+
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+\section{Skills}
+\begin{skillList}
+
+    \singleItem{\textbf{\newline Programming Languages:}} PHP, JavaScript (ES6+), HTML5, CSS3, SCSS
+    \singleItem{\textbf{Backend Architecture:}} Laravel, Core/Vanilla PHP, REST APIs, WebSockets (Ratchet) and Laravel Reverb for Broadcasting, Queues
+    \singleItem{\textbf{Frontend Development:}} React.js, jQuery, Alpine.js, Tailwind CSS, Bootstrap
+    \singleItem{\textbf{CRM \& AI Automation:}} GoHighLevel (GHL), Conversation AI, Voice AI, Prompt Engineering, AI Agents, Workflow Automation, Twilio, A2P 10DLC, Webhooks
+    \singleItem{\textbf{Databases:}} PostgreSQL, MySQL
+    \singleItem{\textbf{CMS \& E-Commerce:}} WordPress, WooCommerce, Elementor, WPSyncSheets
+    \singleItem{\textbf{Payment \& Integrations:}} Stripe, PayPal, Affirm, Google Maps API, Google OAuth, UPS Shipping, PHPMailer, TCPDF, cURL
+    \singleItem{\textbf{Cloud, Hosting \& Tools:}} Git, GitHub, Composer, cPanel, SiteGround, Linux Hosting, VS Code, PhpStorm, SEO
+\end{skillList}
+
+\end{document}
