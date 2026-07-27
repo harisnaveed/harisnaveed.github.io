@@ -1,9 +1,9 @@
-name: Build Resume PDF
+name: Build Resume & Cover Letter PDF
 
 on:
   push:
     paths:
-      - 'resume/Haris_Naveed_Resume.tex'
+      - 'resume/*.tex'
   workflow_dispatch:
 
 permissions:
@@ -24,15 +24,25 @@ jobs:
           working_directory: resume
           latexmk_use_xelatex: true
 
-      - name: Upload PDF Artifact
+      - name: Compile LaTeX Cover Letter
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Haris_Naveed_Cover_Letter.tex
+          working_directory: resume
+          latexmk_use_xelatex: true
+
+      - name: Upload PDF Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Haris_Naveed_Resume
-          path: resume/Haris_Naveed_Resume.pdf
+          name: Haris_Naveed_Documents
+          path: |
+            resume/Haris_Naveed_Resume.pdf
+            resume/Haris_Naveed_Cover_Letter.pdf
 
-      - name: Commit and push updated PDF
+      - name: Commit and push updated PDFs
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add resume/Haris_Naveed_Resume.pdf
-          git diff --staged --quiet || (git commit -m "Auto-generate updated resume PDF [skip ci]" && git push)
+          git add resume/*.pdf
+          git diff --staged --quiet || (git commit -m "Auto-generate updated PDFs [skip ci]" && git push)
+
