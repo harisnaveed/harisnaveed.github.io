@@ -1,0 +1,36 @@
+name: Build Resume PDF
+
+on:
+  push:
+    paths:
+      - 'resume/Haris_Naveed_Resume.tex'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX Resume
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: "resume/Haris_Naveed_Resume.tex"
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Haris_Naveed_Resume
+          path: resume/Haris_Naveed_Resume.pdf
+
+      - name: Commit and push updated PDF
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume/Haris_Naveed_Resume.pdf
+          git diff --staged --quiet || (git commit -m "Auto-generate updated resume PDF [skip ci]" && git push)
